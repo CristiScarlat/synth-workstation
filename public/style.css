@@ -1,0 +1,22 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+        Arial, sans-serif;
+    margin: auto;
+    height: 100vh;
+    background-color: #0a1929;
+}
+
+.settings-header {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #80808047;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.input-slide {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+}
