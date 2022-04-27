@@ -23,12 +23,13 @@ export const triggerSynth = (midiNoteEvent) => {
     if (midiNoteEvent.event === 9) {
         //"sine", "square", "sawtooth", "triangle"
         const voice = new Voice(audioContext, mainVolume, noteToFreq(midiNoteEvent.note), "sawtooth");
-        voice.setEnvelope(0.1, 0.5, 0.8, 0.5);
+        voice.setEnvelope(0, 0, 0.6, 2);
         voice.triggerAttack();
         voices[midiNoteEvent.note] = voice;
     }
     else if (midiNoteEvent.event === 8) {
-        voices[midiNoteEvent.note].triggerRelease();
+        //voices[midiNoteEvent.note].triggerRelease();
+        voices[midiNoteEvent.note].stop();
         delete voices[midiNoteEvent.note];
     }
 }

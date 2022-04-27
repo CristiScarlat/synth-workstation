@@ -23,7 +23,6 @@ const startMidi = async() => {
     const midiPortsList = document.getElementById('midi-port-select');
     const fragment = document.createDocumentFragment();
     const { inputs, outputs } = listMidiPorts();
-
     inputs.forEach(input => {
         const portName = input[1].name;
         const displaySelectedMidiPort = document.getElementById('dropdownMenuButtonMidiInput');
@@ -46,7 +45,19 @@ window.onload = async () => {
 }
 
 const mainVolumeSlider = document.getElementById("main-volume-slider");
-mainVolumeSlider.onchange = handleChangeMasterVolume;
+mainVolumeSlider.oninput = handleChangeMasterVolume;
+
+const voiceAttack = document.getElementById("synth-adsr-attack");
+voiceAttack.oninput = (e) => console.log(e.target.value);
+
+const voiceDecay= document.getElementById("synth-adsr-decay");
+voiceDecay.oninput = (e) => console.log(e.target.value);
+
+const voiceSustain = document.getElementById("synth-adsr-sustain");
+voiceSustain.oninput = (e) => console.log(e.target.value);
+
+const voiceRelease = document.getElementById("synth-adsr-release");
+voiceRelease.oninput = (e) => console.log(e.target.value);
 
 
 
