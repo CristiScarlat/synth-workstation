@@ -1,5 +1,13 @@
 import { initMidi, listMidiPorts, setSelectedMidiPort } from './midi.js';
-import { triggerSynth, resumeAudio, handleChangeMasterVolume } from './synth.js';
+import { 
+    triggerSynth, 
+    resumeAudio, 
+    handleChangeMasterVolume, 
+    handleChangeVoiceAdsr,
+    handleChangeOsc1Level,
+    handleChangeOsc2Level,
+    handleChangeOsc2Detune 
+} from './synth.js';
 import '../public/style.css';
 
 const onMidiEvent = (e) => {
@@ -48,16 +56,25 @@ const mainVolumeSlider = document.getElementById("main-volume-slider");
 mainVolumeSlider.oninput = handleChangeMasterVolume;
 
 const voiceAttack = document.getElementById("synth-adsr-attack");
-voiceAttack.oninput = (e) => console.log(e.target.value);
+voiceAttack.oninput = (e) => handleChangeVoiceAdsr(e.target.value, e.target.name);
 
 const voiceDecay= document.getElementById("synth-adsr-decay");
-voiceDecay.oninput = (e) => console.log(e.target.value);
+voiceDecay.oninput = (e) => handleChangeVoiceAdsr(e.target.value, e.target.name);
 
 const voiceSustain = document.getElementById("synth-adsr-sustain");
-voiceSustain.oninput = (e) => console.log(e.target.value);
+voiceSustain.oninput = (e) => handleChangeVoiceAdsr(e.target.value, e.target.name);
 
 const voiceRelease = document.getElementById("synth-adsr-release");
-voiceRelease.oninput = (e) => console.log(e.target.value);
+voiceRelease.oninput = (e) => handleChangeVoiceAdsr(e.target.value, e.target.name);
+
+const osc1Level = document.getElementById("synth-osc1-level");
+osc1Level.oninput = (e) => handleChangeOsc1Level(e.target.value);
+
+const osc2Level = document.getElementById("synth-osc2-level");
+osc2Level.oninput = (e) => handleChangeOsc2Level(e.target.value);
+
+const osc2Detune = document.getElementById("synth-osc2-detune");
+osc2Detune.oninput = (e) => handleChangeOsc2Detune(e.target.value);
 
 
 
