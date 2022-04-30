@@ -6,10 +6,22 @@ body {
     background-color: #0a1929;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #80808047;
+}
+
+.header-link {
+    color: #3e5064;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
 .settings-header {
     display: flex;
     padding: 10px;
-    border-bottom: 1px solid #80808047;
     justify-content: flex-end;
     gap: 1rem;
 }
@@ -34,6 +46,8 @@ body {
     border: 1px solid #2b3642;
     margin: 1rem;
     border-radius: 5px;
+    min-height: 20rem;
+    padding: 2rem;
 }
 
 .synth-control-voice {
@@ -46,7 +60,7 @@ body {
     flex-wrap: wrap;
 }
 
-label {
+.module-label {
     position: absolute;
     top: -14px;
     left: 10px;
@@ -56,3 +70,15 @@ label {
     background: #0a1929;
     padding: 0 1rem;
 }
+
+canvas {
+    border: 1px solid #2b3642;
+    border-radius: 5px;
+    background-color: #001b2f;
+}
+
+/* 
+input[type="range"] {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+} */
